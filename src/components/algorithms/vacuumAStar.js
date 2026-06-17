@@ -136,7 +136,7 @@ export function solveVacuumAStar({
         generatedNodes,
         visitedStateKeys,
         visitedPositions,
-        message: 'Đã tìm thấy lời giải tối ưu.',
+        message: 'Optimal solution found.',
       };
     }
 
@@ -155,7 +155,7 @@ export function solveVacuumAStar({
         generatedNodes,
         visitedStateKeys,
         visitedPositions,
-        message: 'Đã đạt giới hạn node mở rộng. Hãy giảm số ô dirty.',
+        message: 'The expansion limit was reached. Reduce the number of dirty cells or increase the limit.',
       };
     }
 
@@ -197,7 +197,7 @@ export function solveVacuumAStar({
     generatedNodes,
     visitedStateKeys,
     visitedPositions,
-    message: 'Không tìm thấy lời giải.',
+    message: 'No solution was found.',
   };
 }
 
@@ -229,7 +229,7 @@ export function generateRandomDirty({
   }
 
   if (count < 0 || count > available.length) {
-    throw new Error(`Số ô dirty phải nằm trong khoảng 0–${available.length}.`);
+    throw new Error(`The number of dirty cells must be between 0 and ${available.length}.`);
   }
 
   const random = seededRandom(seed);
@@ -247,7 +247,7 @@ export function parseCsvDirty(text, rows, cols) {
     .map((line) => line.trim())
     .filter(Boolean);
 
-  if (lines.length === 0) throw new Error('File CSV đang rỗng.');
+  if (lines.length === 0) throw new Error('The CSV file is empty.');
 
   const delimiter = lines[0].includes(';') ? ';' : ',';
   const first = lines[0].split(delimiter).map((v) => v.trim().toLowerCase());
@@ -263,10 +263,10 @@ export function parseCsvDirty(text, rows, cols) {
     const y = Number(cells[yIndex]);
 
     if (!Number.isInteger(x) || !Number.isInteger(y)) {
-      throw new Error(`Dòng ${index + (hasHeader ? 2 : 1)} có tọa độ không hợp lệ.`);
+      throw new Error(`Row ${index + (hasHeader ? 2 : 1)} contains invalid coordinates.`);
     }
     if (x < 1 || x > cols || y < 1 || y > rows) {
-      throw new Error(`Tọa độ (${x}, ${y}) nằm ngoài ma trận.`);
+      throw new Error(`Coordinate (${x}, ${y}) is outside the grid.`);
     }
     dirty.add(cellKey(x, y));
   });
