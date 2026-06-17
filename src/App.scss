@@ -314,7 +314,7 @@ button:disabled {
   bottom: 18px;
   width: min(590px, calc(100% - 44px));
   display: grid;
-  grid-template-columns: 42px 50px 42px 1fr;
+  grid-template-columns: 42px 50px 42px minmax(120px, 1fr) auto;
   align-items: center;
   gap: 8px;
   padding: 9px 12px;
@@ -344,6 +344,21 @@ button:disabled {
 .playback-panel input[type='range'] {
   width: 100%;
   accent-color: #2589df;
+}
+
+.playback-panel .step-indicator {
+  min-width: 54px;
+  padding: 5px 8px;
+  border: 1px solid rgba(37, 137, 223, 0.28);
+  border-radius: 999px;
+  color: #195f93;
+  background: #eef7fe;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  font-weight: 800;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
 }
 
 .route-card {
@@ -734,7 +749,13 @@ button:disabled {
 
   .playback-panel {
     bottom: 12px;
-    grid-template-columns: 34px 40px 34px 1fr;
+    grid-template-columns: 34px 40px 34px minmax(80px, 1fr) auto;
+  }
+
+  .playback-panel .step-indicator {
+    min-width: 46px;
+    padding: 4px 6px;
+    font-size: 11px;
   }
 
   .form-grid {

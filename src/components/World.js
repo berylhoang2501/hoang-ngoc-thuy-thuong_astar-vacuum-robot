@@ -479,11 +479,19 @@ export default function World() {
             max={maximumStep}
             value={currentStep}
             disabled={!result?.found}
+            aria-label={`Solution progress: step ${currentStep} of ${maximumStep}`}
             onChange={(event) => {
               setIsPlaying(false);
               setCurrentStep(Number(event.target.value));
             }}
           />
+          <output
+            className="step-indicator"
+            aria-live="polite"
+            aria-label={`Current step ${currentStep} of ${maximumStep}`}
+          >
+            {currentStep}/{maximumStep}
+          </output>
         </div>
 
         {result?.found && (
