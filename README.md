@@ -32,7 +32,7 @@ The goal is to clean all dirty cells with the minimum total cost.
 - CSV, XLS, and XLSX dirty-cell import
 - Downloadable CSV and Excel input templates
 - Interactive 3D visualization with camera rotation and zoom
-- A* route animation with play, pause, previous, next, and timeline controls
+- A* route animation with play, pause, previous, next, timeline, step indicator, and `0.5×–2×` playback speed
 - Per-step cost, cumulative cost, total cost, and expanded-node statistics
 - Route export to CSV
 - Python notebook included for the official `.ipynb` assignment requirement
@@ -49,6 +49,12 @@ x,y
 ```
 
 The interface includes **Download CSV Template** and **Download Excel Template** buttons under **World Settings → Import CSV / Excel**.
+
+## Interface organization
+
+- **World group:** dirty-cell source and **World Settings**
+- **A* Search group:** **Visualize**, **Clear Path**, and **Reset Agent**
+- **Playback bar:** previous, play/pause, next, progress, current step, and playback speed
 
 ## Run locally
 

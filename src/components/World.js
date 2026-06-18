@@ -22,9 +22,10 @@ const DEFAULT_CONFIG = {
 };
 
 const SPEEDS = {
-  fast: 220,
-  normal: 520,
-  slow: 950,
+  '0.5': 1000,
+  '1': 520,
+  '1.5': 350,
+  '2': 220,
 };
 
 const STUDENT_NAME = 'Hoàng Ngọc Thủy Thương';
@@ -96,7 +97,7 @@ export default function World() {
   const [result, setResult] = useState(null);
   const [currentStep, setCurrentStep] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [speed, setSpeed] = useState('fast');
+  const [speed, setSpeed] = useState('1');
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [infoOpen, setInfoOpen] = useState(false);
   const [resetCameraToken, setResetCameraToken] = useState(0);
@@ -356,52 +357,47 @@ export default function World() {
           </div>
         </div>
 
-        <select className="toolbar-select" value="astar" disabled aria-label="Algorithm">
-          <option value="astar">A* Search</option>
-        </select>
+        <div className="algorithm-badge" aria-label="Selected algorithm: A star">
+          <span>Algorithm</span>
+          <strong>A*</strong>
+        </div>
 
-        <select
-          className="toolbar-select source-select"
-          value={sourceMode}
-          onChange={(event) => {
-            setSourceMode(event.target.value);
-            setSettingsOpen(true);
-          }}
-          aria-label="Dirty-cell source"
-        >
-          <option value="random">Random Dirty</option>
-          <option value="file">CSV / Excel</option>
-        </select>
+        <div className="toolbar-group world-toolbar-group" aria-label="World configuration controls">
+          <span className="toolbar-group-label">WORLD</span>
+          <select
+            className="toolbar-select source-select"
+            value={sourceMode}
+            onChange={(event) => {
+              setSourceMode(event.target.value);
+              setSettingsOpen(true);
+            }}
+            aria-label="Dirty-cell source"
+          >
+            <option value="random">Random Dirty</option>
+            <option value="file">CSV / Excel</option>
+          </select>
 
-        <button
-          className={`toolbar-button primary settings-button ${settingsOpen ? 'active' : ''}`}
-          onClick={() => setSettingsOpen((open) => !open)}
-          title="Open world settings"
-        >
-          ⚙ World Settings
-        </button>
+          <button
+            className={`toolbar-button setup-action settings-button ${settingsOpen ? 'active' : ''}`}
+            onClick={() => setSettingsOpen((open) => !open)}
+            title="Open world settings"
+          >
+            ⚙ World Settings
+          </button>
+        </div>
 
-        <button className="toolbar-button secondary" onClick={visualize}>
-          Visualize
-        </button>
-        <button className="toolbar-button secondary" onClick={clearPath}>
-          Clear Path
-        </button>
-
-        <select
-          className="toolbar-select speed-select"
-          value={speed}
-          onChange={(event) => setSpeed(event.target.value)}
-          aria-label="Animation speed"
-        >
-          <option value="fast">Fast</option>
-          <option value="normal">Normal</option>
-          <option value="slow">Slow</option>
-        </select>
-
-        <button className="toolbar-button primary" onClick={resetAgent}>
-          Reset Agent
-        </button>
+        <div className="toolbar-group search-toolbar-group" aria-label="A star search controls">
+          <span className="toolbar-group-label">A* SEARCH</span>
+          <button className="toolbar-button primary-action" onClick={visualize}>
+            Visualize
+          </button>
+          <button className="toolbar-button secondary-action" onClick={clearPath}>
+            Clear Path
+          </button>
+          <button className="toolbar-button secondary-action" onClick={resetAgent}>
+            Reset Agent
+          </button>
+        </div>
       </header>
 
       <section className={`status-banner ${status.type}`}>{status.text}</section>
@@ -492,6 +488,18 @@ export default function World() {
           >
             {currentStep}/{maximumStep}
           </output>
+          <select
+            className="playback-speed"
+            value={speed}
+            onChange={(event) => setSpeed(event.target.value)}
+            aria-label="Playback speed"
+            title="Playback speed"
+          >
+            <option value="0.5">0.5×</option>
+            <option value="1">1×</option>
+            <option value="1.5">1.5×</option>
+            <option value="2">2×</option>
+          </select>
         </div>
 
         {result?.found && (
