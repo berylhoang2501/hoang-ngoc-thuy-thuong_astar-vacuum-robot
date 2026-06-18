@@ -283,7 +283,7 @@ export default function World() {
       setSourceMode('file');
       setStatus({
         type: 'success',
-        text: `Loaded ${dirty.size} dirty-cell coordinates from “${file.name}”. Select “Build World” to apply them.`,
+        text: `Loaded ${dirty.size} dirty-cell coordinates from “${file.name}”. Select “Apply Changes” to apply them.`,
       });
     } catch (error) {
       setImportedDirty(null);
@@ -660,7 +660,7 @@ export default function World() {
           setupWorld();
           setSettingsOpen(false);
         }}>
-          Build World
+          Apply Changes
         </button>
       </aside>
 

@@ -1,17 +1,16 @@
-# Upload this update to GitHub
+# Update button label
 
-This update adds a YouTube-style step indicator beside the playback progress bar.
+This update keeps all existing behavior and changes only the settings action wording:
 
-Example: `0/27`, `12/27`, `27/27`.
+- Toolbar button: `World Settings` (unchanged)
+- Drawer action button: `Apply Changes`
+- File-import confirmation now says: `Select “Apply Changes” to apply them.`
 
-Upload and replace these folders/files in the repository root:
+Upload these items to the repository root and replace existing files:
 
-- `src/components/World.js`
-- `src/App.scss`
+- `src/`
 - `build/`
 
-Commit message suggestion:
+Suggested commit message:
 
-`Add playback step indicator`
-
-The existing GitHub Pages workflow deploys directly from `build/`, so uploading the updated `build/` folder is required.
+`Rename world settings action button`
