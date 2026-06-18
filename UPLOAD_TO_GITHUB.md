@@ -1,34 +1,13 @@
-# Upload this update to GitHub
+# GitHub update instructions
 
-This update groups controls by purpose and moves animation speed to the playback bar.
+Upload these items to the repository root and replace the existing files:
 
-## Changed files
-
-- `src/components/World.js`
 - `src/App.scss`
+- `src/components/World.js`
 - `build/`
-- `README.md`
 
-## Upload steps
+Suggested commit message:
 
-1. Open the repository on GitHub.
-2. Choose **Add file → Upload files**.
-3. Upload the following items from this package:
-   - `src/`
-   - `build/`
-   - `README.md`
-4. Commit with:
+`Improve project info button and modal readability`
 
-```text
-Group toolbar controls and move speed to playback
-```
-
-5. Wait for GitHub Actions to finish.
-6. Reload the demo with **Command + Shift + R** on macOS or **Ctrl + Shift + R** on Windows.
-
-## Expected interface
-
-- The algorithm is displayed as a compact `Algorithm A*` badge.
-- `Random Dirty / CSV–Excel` and `World Settings` are grouped under **WORLD**.
-- `Visualize`, `Clear Path`, and `Reset Agent` are grouped under **A* SEARCH**.
-- Speed is located beside the progress bar and uses `0.5×`, `1×`, `1.5×`, and `2×`.
+After GitHub Actions finishes, hard-refresh the demo with `Command + Shift + R` on macOS or `Ctrl + F5` on Windows.

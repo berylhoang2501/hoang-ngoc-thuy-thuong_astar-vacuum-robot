@@ -672,9 +672,30 @@ export default function World() {
         </button>
       </aside>
 
-      <button className="floating-info" onClick={() => setInfoOpen((open) => !open)}>i</button>
-      <section className={`info-popover ${infoOpen ? 'open' : ''}`}>
-        <button onClick={() => setInfoOpen(false)}>×</button>
+      <button
+        className={`floating-info ${infoOpen ? 'active' : ''}`}
+        type="button"
+        aria-label="Open project information"
+        aria-expanded={infoOpen}
+        title="Project information"
+        onClick={() => setInfoOpen((open) => !open)}
+      >
+        <span aria-hidden="true">i</span>
+      </button>
+      <section
+        className={`info-popover ${infoOpen ? 'open' : ''}`}
+        role="dialog"
+        aria-modal="false"
+        aria-label="Project information"
+      >
+        <button
+          className="info-close-button"
+          type="button"
+          aria-label="Close project information"
+          onClick={() => setInfoOpen(false)}
+        >
+          ×
+        </button>
         <h3>A* Search for a Vacuum-Cleaner Robot</h3>
         <p>
           A state contains the robot position and the set of remaining dirty cells. The robot can move
