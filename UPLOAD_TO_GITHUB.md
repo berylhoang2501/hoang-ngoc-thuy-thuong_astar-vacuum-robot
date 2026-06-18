@@ -1,16 +1,12 @@
-# Update button label
+# Update labels: TOTAL COST and EXPANDED NODES
 
-This update keeps all existing behavior and changes only the settings action wording:
-
-- Toolbar button: `World Settings` (unchanged)
-- Drawer action button: `Apply Changes`
-- File-import confirmation now says: `Select “Apply Changes” to apply them.`
-
-Upload these items to the repository root and replace existing files:
+Upload the following folders to the root of your GitHub repository and allow GitHub to replace files with the same paths:
 
 - `src/`
 - `build/`
 
 Suggested commit message:
 
-`Rename world settings action button`
+`Clarify total cost and expanded nodes labels`
+
+After GitHub Actions finishes, hard-refresh the demo page with `Command + Shift + R` on macOS or `Ctrl + F5` on Windows.
