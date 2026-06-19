@@ -81,6 +81,3 @@ The Python notebook contains my main A* implementation, including the state repr
 
 I also developed the React/Three.js application to present the same problem as an interactive 3D simulation.
 
-## Credits
-
-I used the open-source project listed in [`CREDITS.md`](CREDITS.md) as a reference for the 3D interface structure. I implemented the vacuum-cleaner state model, cost function, A* search, CSV/XLSX input, route output, and Python notebook for this project.
