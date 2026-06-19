@@ -197,7 +197,7 @@ export default function World() {
         });
       } else {
         if (!importedDirty) {
-          throw new Error('Select a CSV or Excel file before building the world.');
+          throw new Error('Select a CSV or XLSX file before building the world.');
         }
         dirty = new Set(importedDirty);
         dirty.forEach((key) => {
@@ -274,10 +274,10 @@ export default function World() {
       let dirty;
       if (file.name.toLowerCase().endsWith('.csv')) {
         dirty = parseCsvDirty(await file.text(), config.rows, config.cols);
-      } else if (/\.xlsx?$/i.test(file.name)) {
+      } else if (/\.xlsx$/i.test(file.name)) {
         dirty = readExcelDirty(await file.arrayBuffer(), config.rows, config.cols);
       } else {
-        throw new Error('Only CSV, XLS, and XLSX files are supported.');
+        throw new Error('Only CSV and XLSX files are supported.');
       }
       setImportedDirty(dirty);
       setImportedFileName(file.name);
@@ -319,7 +319,7 @@ export default function World() {
     XLSX.writeFile(workbook, 'dirty_cells_template.xlsx');
     setStatus({
       type: 'success',
-      text: 'Excel template downloaded. Keep the x and y column names unchanged.',
+      text: 'Excel (.xlsx) template downloaded. Keep the x and y column names unchanged.',
     });
   }
 
@@ -374,7 +374,7 @@ export default function World() {
             aria-label="Dirty-cell source"
           >
             <option value="random">Random Dirty</option>
-            <option value="file">CSV / Excel</option>
+            <option value="file">CSV / XLSX</option>
           </select>
 
           <button
@@ -591,7 +591,7 @@ export default function World() {
           <span>Dirty-cell source</span>
           <select value={sourceMode} onChange={(event) => setSourceMode(event.target.value)}>
             <option value="random">Random generation</option>
-            <option value="file">Import CSV / Excel</option>
+            <option value="file">Import CSV / XLSX</option>
           </select>
         </label>
 
@@ -627,13 +627,13 @@ export default function World() {
           </>
         ) : (
           <div className="file-field">
-            <button className="file-upload-button" onClick={() => fileInputRef.current?.click()}>Choose CSV / Excel</button>
+            <button className="file-upload-button" onClick={() => fileInputRef.current?.click()}>Choose CSV / XLSX</button>
             <span>{importedFileName || 'No file selected'}</span>
             <input
               ref={fileInputRef}
               hidden
               type="file"
-              accept=".csv,.xls,.xlsx"
+              accept=".csv,.xlsx"
               onChange={(event) => handleFile(event.target.files?.[0])}
             />
             <small>Required columns: <b>x</b> and <b>y</b>. Coordinates start at 1.</small>
@@ -647,7 +647,7 @@ export default function World() {
                 Download CSV Template
               </button>
               <button className="template-button" onClick={downloadExcelTemplate}>
-                Download Excel Template
+                Download Excel (.xlsx) Template
               </button>
             </div>
           </div>

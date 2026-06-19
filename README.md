@@ -29,7 +29,7 @@ The goal is to clean all dirty cells with the minimum total cost.
 
 - User-defined grid dimensions and robot start position
 - Random dirty-cell generation with a reproducible seed
-- CSV, XLS, and XLSX dirty-cell import
+- CSV and XLSX dirty-cell import
 - Downloadable CSV and Excel input templates
 - Interactive 3D visualization with camera rotation and zoom
 - A* route animation with play, pause, previous, next, and timeline controls
@@ -48,7 +48,7 @@ x,y
 3,4
 ```
 
-The interface includes **Download CSV Template** and **Download Excel Template** buttons under **World Settings → Import CSV / Excel**.
+The interface includes **Download CSV Template** and **Download Excel Template** buttons under **World Settings → Import CSV / XLSX**.
 
 ## Run locally
 
