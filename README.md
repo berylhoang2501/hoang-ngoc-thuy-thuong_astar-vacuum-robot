@@ -5,9 +5,9 @@
 **Instructor:** Dr. Nguyễn An Tế  
 **Submission:** April 2026
 
-## Project overview
+## About this project
 
-This project applies the A* algorithm to a vacuum-cleaner robot operating on a rectangular grid `A(m,n)`. The coordinate origin `(1,1)` is located at the bottom-left corner. Every cell is either clean or dirty.
+For this final project, I implemented the A* algorithm for a vacuum-cleaner robot moving on a rectangular grid `A(m,n)`. The coordinate origin `(1,1)` is placed at the bottom-left corner, and each cell is either clean or dirty.
 
 The robot can perform one action at a time:
 
@@ -17,7 +17,7 @@ The robot can perform one action at a time:
 - `MOVE_DOWN`
 - `SUCK`
 
-The cost of each action is calculated as:
+I calculate the cost of each action using:
 
 ```text
 step cost = 1 + number of dirty cells remaining after the action
@@ -27,19 +27,19 @@ The goal is to clean all dirty cells with the minimum total cost.
 
 ## Main features
 
-- User-defined grid dimensions and robot start position
+- Custom grid dimensions and robot start position
 - Random dirty-cell generation with a reproducible seed
-- CSV and XLSX dirty-cell import
-- Downloadable CSV and Excel input templates
+- Dirty-cell input from CSV or XLSX files
+- Downloadable CSV and XLSX templates
 - Interactive 3D visualization with camera rotation and zoom
-- A* route animation with play, pause, previous, next, and timeline controls
-- Per-step cost, cumulative cost, total cost, and expanded-node statistics
+- A* route animation with play, pause, previous, next, timeline, and playback speed controls
+- Current step, action, accumulated cost, dirty cells left, total cost, and expanded-node statistics
 - Route export to CSV
-- Python notebook included for the official `.ipynb` assignment requirement
+- A Python notebook containing the complete A* implementation and saved results
 
 ## Input file format
 
-CSV and Excel files must contain two columns named `x` and `y`:
+The CSV or XLSX file must contain two columns named `x` and `y`.
 
 ```csv
 x,y
@@ -48,7 +48,7 @@ x,y
 3,4
 ```
 
-The interface includes **Download CSV Template** and **Download Excel Template** buttons under **World Settings → Import CSV / XLSX**.
+The interface provides **Download CSV Template** and **Download Excel (.xlsx) Template** buttons in **World Settings**.
 
 ## Run locally
 
@@ -70,22 +70,17 @@ npm run build
 - `src/components/World.js`: interface and application logic
 - `src/components/algorithms/vacuumAStar.js`: A* implementation
 - `src/components/VacuumScene.js`: 3D scene
-- `notebook/Hoang_Ngoc_Thuy_Thuong_AStar_Vacuum_Robot.ipynb`: primary Python submission notebook with saved outputs
-- `notebook/Hoang_Ngoc_Thuy_Thuong_AStar_Result.csv`: sample route result exported by the notebook
-- `notebook/dirty_cells_sample.csv` and `notebook/dirty_cells_sample.xlsx`: notebook input templates
-- `samples/`: CSV and Excel examples for the web interface
+- `notebook/Hoang_Ngoc_Thuy_Thuong_AStar_Vacuum_Robot.ipynb`: main Python notebook with saved execution results
+- `notebook/Hoang_Ngoc_Thuy_Thuong_AStar_Result.csv`: sample route result exported from the notebook
+- `notebook/dirty_cells_sample.csv` and `notebook/dirty_cells_sample.xlsx`: input templates for the notebook
+- `samples/`: CSV and XLSX examples for the web interface
 
-## Academic note
+## Implementation
 
-The React/Three.js interface is a visualization supplement. The Python notebook is the primary submission artifact because the assignment specifically requires Python in `.ipynb` format.
+The Python notebook contains my main A* implementation, including the state representation, action generation, heuristic, cost calculation, route reconstruction, and result visualization.
+
+I also developed the React/Three.js application to present the same problem as an interactive 3D simulation.
 
 ## Credits
 
-The 3D interface structure was adapted from the open-source project listed in [`CREDITS.md`](CREDITS.md). The vacuum-cleaner state model, cost function, A* solver, file import, route output, and notebook were created for this assignment.
-
-
-## Interface improvements
-
-- The solution status banner is positioned below the toolbar without overlap.
-- The step counter is placed directly after the Next control, before the progress bar.
-- Previous, Play/Pause, Next, step counter, and playback-speed controls share a consistent height.
+I used the open-source project listed in [`CREDITS.md`](CREDITS.md) as a reference for the 3D interface structure. I implemented the vacuum-cleaner state model, cost function, A* search, CSV/XLSX input, route output, and Python notebook for this project.
