@@ -440,12 +440,16 @@ export default function World() {
           <span><i className="swatch cleaned" />Cleaned</span>
         </div>
 
-        <div className="stats-panel">
+        <div className="stats-panel live-stats-panel">
           <div><small>STEP</small><strong>{currentStep}/{maximumStep}</strong></div>
           <div><small>ACTION</small><strong>{currentAction}</strong></div>
-          <div><small>COST</small><strong>{cumulativeCost}</strong></div>
-          <div><small>TOTAL COST</small><strong>{result?.found ? result.totalCost : '—'}</strong></div>
+          <div><small>CURRENT COST</small><strong>{cumulativeCost}</strong></div>
           <div><small>DIRTY LEFT</small><strong>{currentState.dirty.size}</strong></div>
+        </div>
+
+        <div className="summary-panel">
+          <span className="summary-panel-title">SEARCH SUMMARY</span>
+          <div><small>TOTAL COST</small><strong>{result?.found ? result.totalCost : '—'}</strong></div>
           <div><small>EXPANDED NODES</small><strong>{result?.expandedNodes ?? 0}</strong></div>
         </div>
 

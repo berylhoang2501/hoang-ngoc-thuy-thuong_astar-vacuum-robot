@@ -1,27 +1,22 @@
-# Clean the notebook folder on GitHub
+# Update the statistics layout
 
-The project now keeps only one final notebook:
-
-```text
-notebook/Hoang_Ngoc_Thuy_Thuong_AStar_Vacuum_Robot.ipynb
-```
-
-Before uploading the cleaned files, delete these two old files from the GitHub repository:
+Upload and replace these items in the GitHub repository:
 
 ```text
-notebook/AStar_Vacuum_Robot.ipynb
-notebook/AStar_Vacuum_Robot_source.ipynb
-```
-
-Then upload and replace:
-
-```text
-notebook/
+src/
+build/
 README.md
 ```
+
+The statistics area is now separated into:
+
+- **Live status:** Step, Action, Current Cost, Dirty Left
+- **Search summary:** Total Cost, Expanded Nodes
 
 Suggested commit message:
 
 ```text
-Keep one final personalized notebook
+Separate live status from search summary
 ```
+
+After GitHub Actions finishes, refresh the demo with `Command + Shift + R`.
