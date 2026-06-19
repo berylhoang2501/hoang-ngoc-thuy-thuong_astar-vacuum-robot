@@ -1,15 +1,27 @@
-# Upload this update to GitHub
+# Clean the notebook folder on GitHub
 
-Upload and replace these items in the repository root:
+The project now keeps only one final notebook:
 
-- `src/`
-- `build/`
-- `README.md`
+```text
+notebook/Hoang_Ngoc_Thuy_Thuong_AStar_Vacuum_Robot.ipynb
+```
+
+Before uploading the cleaned files, delete these two old files from the GitHub repository:
+
+```text
+notebook/AStar_Vacuum_Robot.ipynb
+notebook/AStar_Vacuum_Robot_source.ipynb
+```
+
+Then upload and replace:
+
+```text
+notebook/
+README.md
+```
 
 Suggested commit message:
 
 ```text
-Polish status banner and playback controls
+Keep one final personalized notebook
 ```
-
-After GitHub Actions succeeds, hard-refresh the demo with `Command + Shift + R`.

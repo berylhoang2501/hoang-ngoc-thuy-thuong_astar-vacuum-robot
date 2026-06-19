@@ -70,8 +70,10 @@ npm run build
 - `src/components/World.js`: interface and application logic
 - `src/components/algorithms/vacuumAStar.js`: A* implementation
 - `src/components/VacuumScene.js`: 3D scene
-- `notebook/`: Python notebook and sample files
-- `samples/`: CSV and Excel examples
+- `notebook/Hoang_Ngoc_Thuy_Thuong_AStar_Vacuum_Robot.ipynb`: primary Python submission notebook with saved outputs
+- `notebook/Hoang_Ngoc_Thuy_Thuong_AStar_Result.csv`: sample route result exported by the notebook
+- `notebook/dirty_cells_sample.csv` and `notebook/dirty_cells_sample.xlsx`: notebook input templates
+- `samples/`: CSV and Excel examples for the web interface
 
 ## Academic note
 
