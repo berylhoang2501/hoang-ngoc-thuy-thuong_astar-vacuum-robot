@@ -1,16 +1,15 @@
 # Upload this update to GitHub
 
-This version changes the header subtitle text
-`FINAL PROJECT · HOÀNG NGỌC THỦY THƯƠNG`
-to black for stronger contrast.
-
-Upload and replace these folders in the repository:
+Upload and replace these items in the repository root:
 
 - `src/`
 - `build/`
+- `README.md`
 
 Suggested commit message:
 
-`Improve header subtitle contrast`
+```text
+Polish status banner and playback controls
+```
 
-After GitHub Actions completes, hard-refresh the demo with `Command + Shift + R`.
+After GitHub Actions succeeds, hard-refresh the demo with `Command + Shift + R`.

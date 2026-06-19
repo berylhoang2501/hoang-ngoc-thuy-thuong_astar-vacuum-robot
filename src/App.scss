@@ -1254,3 +1254,95 @@ button:disabled {
   color: #9edbff;
   font-weight: 800;
 }
+
+/* ==========================================================
+   Playback polish: clear status spacing and aligned controls
+   ========================================================== */
+.status-banner {
+  top: 90px;
+}
+
+.playback-panel {
+  width: min(735px, calc(100% - 44px));
+  grid-template-columns: 42px 42px 42px 64px minmax(150px, 1fr) 72px;
+  gap: 9px;
+}
+
+.playback-panel button,
+.playback-panel .play-button,
+.playback-panel .step-indicator,
+.playback-panel .playback-speed {
+  height: 42px;
+  min-height: 42px;
+}
+
+.playback-panel button,
+.playback-panel .play-button {
+  width: 42px;
+  min-width: 42px;
+  padding: 0;
+}
+
+.playback-panel .step-indicator {
+  min-width: 64px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px;
+  border-radius: 999px;
+  line-height: 1;
+}
+
+.playback-panel .playback-speed {
+  width: 72px;
+  min-width: 72px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.playback-panel input[type='range'] {
+  min-width: 0;
+  align-self: center;
+}
+
+@media (max-width: 680px) {
+  .status-banner {
+    top: 86px;
+  }
+
+  .playback-panel {
+    width: calc(100% - 24px);
+    grid-template-columns: 38px 38px 38px 54px minmax(62px, 1fr) 58px;
+    gap: 5px;
+    padding-inline: 8px;
+  }
+
+  .playback-panel button,
+  .playback-panel .play-button,
+  .playback-panel .step-indicator,
+  .playback-panel .playback-speed {
+    height: 38px;
+    min-height: 38px;
+  }
+
+  .playback-panel button,
+  .playback-panel .play-button {
+    width: 38px;
+    min-width: 38px;
+  }
+
+  .playback-panel .step-indicator {
+    min-width: 54px;
+    padding: 0 6px;
+    font-size: 11px;
+  }
+
+  .playback-panel .playback-speed {
+    width: 58px;
+    min-width: 58px;
+    padding-left: 7px;
+    padding-right: 18px;
+    font-size: 11px;
+  }
+}
+

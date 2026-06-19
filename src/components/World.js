@@ -469,6 +469,14 @@ export default function World() {
           >
             ▶
           </button>
+          <output
+            className="step-indicator"
+            aria-live="polite"
+            aria-label={`Current step ${currentStep} of ${maximumStep}`}
+            title="Current step / total steps"
+          >
+            {currentStep}/{maximumStep}
+          </output>
           <input
             type="range"
             min="0"
@@ -481,13 +489,6 @@ export default function World() {
               setCurrentStep(Number(event.target.value));
             }}
           />
-          <output
-            className="step-indicator"
-            aria-live="polite"
-            aria-label={`Current step ${currentStep} of ${maximumStep}`}
-          >
-            {currentStep}/{maximumStep}
-          </output>
           <select
             className="playback-speed"
             value={speed}
